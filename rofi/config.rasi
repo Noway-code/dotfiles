@@ -1,0 +1,6 @@
+configuration {
+    modi: "drun,run,window";
+    sorting-method: "fzf";          // Use fzf sorting for better result prioritization
+    matching: "normal";             // Stricter matching (case-sensitive)
+    drun-match-fields: "name";      // Only match on the app name
+}
