@@ -9,11 +9,11 @@ style = "Block"
 size = 12
 
   [font.bold]
-  family = "JetBrains Mono"
+  family = "Jetbrains Mono"
   style = "Bold"
 
   [font.normal]
-  family = "JetBrains Mono"
+  family = "Jetbrains Mono"
   style = "Regular"
 
 [[keyboard.bindings]]
