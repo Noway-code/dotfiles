@@ -2,8 +2,8 @@
 
 * {
    font-family: FixederSys2x;
-    font-size: 15px;
-    min-height: 0;
+   font-size: 15px;
+   min-height: 0;
 }
 
 #waybar {
@@ -58,7 +58,6 @@
   border-radius: 1rem;
 }
 
-
 #clock,
 #cpu,
 #memory,
@@ -106,7 +105,20 @@
   margin: 5px;
   background-color: @surface0;
   margin-left: 1rem;
-  padding: 4px
+  padding: 8px;
+}
+
+#custom-power_profile {
+  color: @yellow;
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @surface0;
+  padding: 0.5rem;
+  margin-left: 1rem;
+}
+
+#custom-power_profile:hover {
+  color: @orange;
 }
 
 #tray {

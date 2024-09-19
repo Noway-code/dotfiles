@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces","clock"],
     "modules-center": ["custom/music"],
-    "modules-right": ["pulseaudio", "cpu", "memory", "battery","network"],
+    "modules-right": ["custom/power_profile", "pulseaudio", "cpu", "memory", "battery","battery#BAT1","network"],
 
      "pulseaudio": {
         "format": "{volume}% {icon}",
@@ -22,15 +22,36 @@
         "max-length": 50
     },
 
+   "custom/power_profile": {
+        "format": "{}",
+        "exec": "~/.config/waybar/toggle_power_profile.sh && powerprofilesctl get",
+        "interval": 10,
+        "tooltip": false,
+        "on-click": "~/.config/waybar/toggle_power_profile.sh"
+    },
+
+
     "clock": {
         "format": "{:%Y-%m-%d %I:%M}"
     },
 
 
     "battery": {
-      "format": "{capacity}% {icon}",
-      "format-charging": "{capacity}%  ",
-      "format-icons": ["", "", "", "", ""]
+        "bat": "BAT0",
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}%  ",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "BAT0",
+        "interval": 5
+    },
+
+    "battery#BAT1": {
+        "bat": "BAT1",
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}%  ",
+        "format-icons": ["", "", "", "", ""],
+        "tooltip-format": "BAT1",
+        "interval": 5
     },
 
     "cpu": {
