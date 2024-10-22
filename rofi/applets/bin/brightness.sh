@@ -10,8 +10,8 @@ source "$HOME"/.config/rofi/applets/shared/theme.bash
 theme="$type/$style"
 
 # Brightness Info
-backlight="$(printf "%.0f\n" `light -G`)"
-card="`light -L | grep 'backlight' | head -n1 | cut -d'/' -f3`"
+backlight="$(printf "%.0f\n" "$(light -G)")"
+card="$(light -L | grep 'backlight' | head -n1 | cut -d'/' -f3)"
 
 if [[ $backlight -ge 0 ]] && [[ $backlight -le 29 ]]; then
     level="Low"
@@ -29,34 +29,32 @@ mesg="Device: ${card}, Level: $level"
 
 if [[ "$theme" == *'type-1'* ]]; then
 	list_col='1'
-	list_row='4'
+	list_row='3'
 	win_width='400px'
 elif [[ "$theme" == *'type-3'* ]]; then
 	list_col='1'
-	list_row='4'
+	list_row='3'
 	win_width='120px'
 elif [[ "$theme" == *'type-5'* ]]; then
 	list_col='1'
-	list_row='4'
-	win_width='425px'
+	list_row='3'
+	win_width='300px'
 elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
-	list_col='4'
+	list_col='3'
 	list_row='1'
 	win_width='550px'
 fi
 
 # Options
-layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
+layout="$(grep 'USE_ICON' "${theme}" | cut -d'=' -f2)"
 if [[ "$layout" == 'NO' ]]; then
 	option_1=" Increase"
-	option_2=" Optimal"
+	option_2=" Max"
 	option_3=" Decrease"
-	option_4=" Settings"
 else
 	option_1=""
 	option_2=""
 	option_3=""
-	option_4=""
 fi
 
 # Rofi CMD
@@ -68,24 +66,28 @@ rofi_cmd() {
 		-p "$prompt" \
 		-mesg "$mesg" \
 		-markup-rows \
-		-theme ${theme}
+		-theme "${theme}"
 }
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$option_1\n$option_2\n$option_3\n$option_4" | rofi_cmd
+	echo -e "$option_1\n$option_2\n$option_3" | rofi_cmd
 }
 
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		light -A 5
+		light -A 30
 	elif [[ "$1" == '--opt2' ]]; then
-		light -S 25
+		light -S 100
 	elif [[ "$1" == '--opt3' ]]; then
-		light -U 5
-	elif [[ "$1" == '--opt4' ]]; then
-		xfce4-power-manager-settings
+		# Decrease brightness, but ensure it doesn't go below 5
+		current_brightness=$(light -G)
+		if (( $(echo "$current_brightness - 30 < 5" | bc -l) )); then
+			light -S 5
+		else
+			light -U 30
+		fi
 	fi
 }
 
@@ -100,8 +102,5 @@ case ${chosen} in
         ;;
     $option_3)
 		run_cmd --opt3
-        ;;
-    $option_4)
-		run_cmd --opt4
         ;;
 esac

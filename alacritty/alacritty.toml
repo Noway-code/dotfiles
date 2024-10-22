@@ -9,13 +9,12 @@ style = "Block"
 size = 12
 
   [font.bold]
-  family = "Jetbrains Mono"
+  family = "JetBrains Mono"
   style = "Bold"
 
   [font.normal]
-  family = "Jetbrains Mono"
+  family = "JetBrains Mono"
   style = "Regular"
-
 [[keyboard.bindings]]
 action = "Paste"
 key = "V"
@@ -64,3 +63,7 @@ opacity = 0.85
   [window.dimensions]
   columns = 100
   lines = 30
+
+[shell]
+  program = "/usr/bin/zsh"
+  args = ["--login"]

@@ -11,40 +11,43 @@ theme="$type/$style"
 
 # Theme Elements
 prompt='Applications'
-mesg="Installed Packages : `pacman -Q | wc -l` (pacman)"
+mesg="Installed Packages: $(dpkg --list | grep '^ii' | wc -l) (dpkg)"
 
 if [[ ( "$theme" == *'type-1'* ) || ( "$theme" == *'type-3'* ) || ( "$theme" == *'type-5'* ) ]]; then
 	list_col='1'
-	list_row='6'
+	list_row='7'
 elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
-	list_col='6'
+	list_col='7'
 	list_row='1'
 fi
 
 # CMDs (add your apps here)
 term_cmd='alacritty'
-file_cmd='thunar'
-text_cmd='geany'
+file_cmd='nautilus'
+text_cmd='kate'
 web_cmd='firefox'
-music_cmd='alacritty -e ncmpcpp'
-setting_cmd='xfce4-settings-manager'
+music_cmd='spotify'
+brightness_cmd='/home/noway/dotfiles/rofi/applets/bin/brightness.sh'
+volume_cmd='/home/noway/dotfiles/rofi/applets/bin/volume.sh'
 
 # Options
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Terminal <span weight='light' size='small'><i>($term_cmd)</i></span>"
+	option_1=" Browser <span weight='light' size='small'><i>($web_cmd)</i></span>"
 	option_2=" Files <span weight='light' size='small'><i>($file_cmd)</i></span>"
 	option_3=" Editor <span weight='light' size='small'><i>($text_cmd)</i></span>"
-	option_4=" Browser <span weight='light' size='small'><i>($web_cmd)</i></span>"
+	option_4=" Terminal <span weight='light' size='small'><i>($term_cmd)</i></span>"
 	option_5=" Music <span weight='light' size='small'><i>($music_cmd)</i></span>"
-	option_6=" Settings <span weight='light' size='small'><i>($setting_cmd)</i></span>"
+	option_6=" Brightness <span weight='light' size='small'><i>(brightness.sh)</i></span>"
+	option_7=" Volume <span weight='light' size='small'><i>(volume.sh)</i></span>"
 else
-	option_1=""
+	option_1=""
 	option_2=""
 	option_3=""
-	option_4=""
+	option_4=""
 	option_5=""
-	option_6=""
+	option_6=""
+	option_7=""
 fi
 
 # Rofi CMD
@@ -60,23 +63,25 @@ rofi_cmd() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6" | rofi_cmd
+	echo -e "$option_1\n$option_2\n$option_3\n$option_4\n$option_5\n$option_6\n$option_7" | rofi_cmd
 }
 
 # Execute Command
 run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
-		${term_cmd}
+		${web_cmd}
 	elif [[ "$1" == '--opt2' ]]; then
 		${file_cmd}
 	elif [[ "$1" == '--opt3' ]]; then
 		${text_cmd}
 	elif [[ "$1" == '--opt4' ]]; then
-		${web_cmd}
+		${term_cmd}
 	elif [[ "$1" == '--opt5' ]]; then
 		${music_cmd}
 	elif [[ "$1" == '--opt6' ]]; then
-		${setting_cmd}
+		${brightness_cmd}
+	elif [[ "$1" == '--opt7' ]]; then
+		${volume_cmd}
 	fi
 }
 
@@ -100,5 +105,8 @@ case ${chosen} in
         ;;
     $option_6)
 		run_cmd --opt6
+        ;;
+	$option_7)
+		run_cmd --opt7
         ;;
 esac

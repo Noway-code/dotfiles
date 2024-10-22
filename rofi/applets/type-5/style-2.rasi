@@ -15,12 +15,12 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "JetBrains Mono Nerd Font 10";
-    background:                  #11092D;
-    background-alt:              #281657;
-    foreground:                  #FFFFFF;
-    selected:                    #DF5296;
-    active:                      #6E77FF;
-    urgent:                      #8E3596;
+    background:                  #383c4a;
+    background-alt:              #414559;
+    foreground:                  #c6d0f5;
+    selected:                    #ea999c;
+    active:                      #e5c890;
+    urgent:                      #a6d189;
 }
 
 /*
@@ -60,13 +60,13 @@ mainbox {
 imagebox {
     border-radius:               20px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/j.jpg", height);
-    children:                    [ "dummy", "inputbar", "dummy" ];
+    background-image:            url("~/.config/rofi/images/mac.jpg", height);
+    children:                    [ "dummy", "dummy", "dummy" ];
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
-    enabled:                     true;
+    enabled:                     false;
     spacing:                     15px;
     background-color:            transparent;
     text-color:                  @foreground;

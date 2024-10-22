@@ -117,7 +117,19 @@
   margin-left: 1rem;
 }
 
+#custom-brightness {
+  color: @yellow;
+  border-radius: 1rem;
+  margin: 5px;
+  background-color: @surface0;
+  padding: 0.5rem;
+  margin-left: 1rem;
+}
+
 #custom-power_profile:hover {
+  color: @orange;
+}
+#custom-brightness:hover {
   color: @orange;
 }
 

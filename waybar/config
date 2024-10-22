@@ -3,7 +3,7 @@
     "position": "top",
     "modules-left": ["sway/workspaces","clock"],
     "modules-center": ["custom/music"],
-    "modules-right": ["custom/power_profile", "pulseaudio", "cpu", "memory", "battery","battery#BAT1","network"],
+    "modules-right": ["custom/brightness", "custom/power_profile", "pulseaudio", "cpu", "memory", "battery","battery#BAT1","network"],
 
      "pulseaudio": {
         "format": "{volume}% {icon}",
@@ -70,6 +70,11 @@
         "format-wifi": "{ifname}   {signalStrength}%",
         "format-disconnected": "Disconnected :(",
         "interval": 10
+    },
+
+    "custom/brightness": {
+        "format": "ello{}",
+        "on-click": "~/.config/waybar/brightness.sh && cat /sys/class/backlight/intel_backlight/brightness"
     }
 
 }

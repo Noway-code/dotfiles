@@ -56,7 +56,7 @@ elif [[ "$theme" == *'type-3'* ]]; then
 elif [[ "$theme" == *'type-5'* ]]; then
 	list_col='1'
 	list_row='5'
-	win_width='520px'
+	win_width='475px'
 elif [[ ( "$theme" == *'type-2'* ) || ( "$theme" == *'type-4'* ) ]]; then
 	list_col='5'
 	list_row='1'
@@ -67,14 +67,14 @@ fi
 layout=`cat ${theme} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
 	option_1=" Increase"
-	option_2="$sicon $stext"
-	option_3=" Decrese"
+	option_2=" Decrease"
+	option_3="$sicon $stext"
 	option_4="$micon $mtext"
 	option_5=" Settings"
 else
 	option_1=""
-	option_2="$sicon"
-	option_3=""
+	option_2=""
+	option_3="$sicon"
 	option_4="$micon"
 	option_5=""
 fi
@@ -102,9 +102,9 @@ run_cmd() {
 	if [[ "$1" == '--opt1' ]]; then
 		amixer -Mq set Master,0 5%+ unmute
 	elif [[ "$1" == '--opt2' ]]; then
-		amixer set Master toggle
-	elif [[ "$1" == '--opt3' ]]; then
 		amixer -Mq set Master,0 5%- unmute
+	elif [[ "$1" == '--opt3' ]]; then
+		amixer set Master toggle
 	elif [[ "$1" == '--opt4' ]]; then
 		amixer set Capture toggle
 	elif [[ "$1" == '--opt5' ]]; then
