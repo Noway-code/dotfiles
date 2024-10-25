@@ -1,0 +1,74 @@
+import = [
+    "~/.config/alacritty/themes/themes/hardhacker.toml"
+]
+
+[cursor]
+style = "Block"
+
+[font]
+size = 12
+
+  [font.bold]
+  family = "FiraCode Nerd Font"
+  style = "Bold"
+
+  [font.normal]
+  family = "FiraCode Nerd Font"
+  style = "Regular"
+
+  [font.italic]
+  family = "FiraCode Nerd Font"
+  style = "Italic"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mods = "Shift"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 10_000
+multiplier = 3
+
+[window]
+decorations = "Full"
+opacity = 0.85
+
+  [window.padding]
+  x = 20
+  y = 20
+
+  [window.dimensions]
+  columns = 100
+  lines = 30
+
+[shell]
+  program = "/usr/bin/zsh"
+  args = ["--login"]
