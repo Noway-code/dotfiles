@@ -31,6 +31,10 @@ exec_always swaybg -i /home/noway/Pictures/Wallpapers/Computer.jpg -m fill
 gaps inner 5
 gaps outer 2
 smart_gaps on
+client.focused #81A1C1 #2E3440 #ECEFF4 #81A1C1
+client.focused_inactive #4C566A #2E3440 #D8DEE9 #4C566A
+client.unfocused #434C5E #2E3440 #D8DEE9 #434C5E
+client.urgent #BF616A #2E3440 #ECEFF4 #BF616A
 
 #
 # Example configuration:

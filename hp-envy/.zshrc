@@ -148,3 +148,16 @@ zle -N fcd
 # Bind the widget to Ctrl-G
 bindkey '^G' fcd
 
+# Function to insert the killport.sh command into the command line
+insert_killport_command() {
+  # Insert the command at the current cursor position
+  LBUFFER+="bash ~/scripts/killport.sh "
+  zle redisplay
+}
+
+# Register the function as a Zle widget
+zle -N insert_killport_command
+
+# Bind the widget to Ctrl-K
+bindkey '^K' insert_killport_command
+
