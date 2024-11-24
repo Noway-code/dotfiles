@@ -21,7 +21,8 @@
 #pulseaudio,
 #bluetooth,
 #network,
-#battery {
+#battery,
+#workspaces {
   border-radius: 10px;
   background-color: #657961;
   color: 	#D2E3D2;
@@ -65,5 +66,38 @@
 /* Optional: Adjustments for #battery to ensure consistent alignment */
 #battery {
   /* You can add specific styles here if needed */
+}
+
+/* Style for the workspaces module */
+#workspaces {
+  border-radius: 10px;
+  background-color: #657961;
+  color: #D2E3D2;
+  padding: 2px 10px;           /* Horizontal padding for spacing */
+  margin-right: 5.5px;         /* Consistent spacing with other modules */
+}
+/* Style for individual workspace items */
+#workspaces > .workspace {
+  padding: 2px 8px;
+  border-radius: 5px;
+  background-color: #657961;   /* Default background */
+  color: #D2E3D2;               /* Default text color */
+}
+
+/* Focused workspace */
+#workspaces > .workspace.focused {
+  background-color: #ffe8ba;
+  color: #657961;
+}
+
+/* Urgent workspace */
+#workspaces > .workspace.urgent {
+  background-color: #ff5555;
+  color: #ffffff;
+}
+
+/* Hover effect for workspace items */
+#workspaces > .workspace:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 

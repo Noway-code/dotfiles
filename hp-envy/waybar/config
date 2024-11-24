@@ -1,8 +1,19 @@
 {
   "layer": "top",
-  "modules-left": ["custom/arch"],
+  "modules-left": ["custom/arch", "sway/workspaces"],
   "modules-center": ["clock"],
   "modules-right": ["backlight", "pulseaudio", "network", "battery"],
+ 
+
+ "sway/workspaces": {
+    "format": "{name}",
+    "format-focused": "<span color='#ffe8ba'>{name}</span>",
+    "format-urgent": "<span color='#ff5555'>{name}</span>",
+    "on-click": "swaymsg workspace {name}",
+    "tooltip": false,
+    "binding-mode": "default"
+  },
+  
   
   "custom/arch": {
     "format": "  ",
@@ -48,4 +59,3 @@
     "tooltip": false
   }
 }
-
