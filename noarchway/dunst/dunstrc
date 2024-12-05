@@ -65,3 +65,8 @@
     override_pause_level = 30
     default_icon = /usr/share/icons/Paper/32x32/status/dialog-warning.png  # Updated icon path
 
+[spotify]
+    appname = "Spotify"
+    skip_display = true
+    history_ignore = true
+
