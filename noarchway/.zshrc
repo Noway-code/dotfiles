@@ -116,3 +116,6 @@ alias cat='bat'
 
 export PATH=/opt/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
+export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+
+. "/home/noarchway/.deno/env"
