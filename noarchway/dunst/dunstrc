@@ -2,9 +2,9 @@
     monitor = 0
     follow = mouse
     width = 620             
-    height = 620            
+    # height = 620            
     origin = top-right
-    offset = 30x30           
+    offset = (30, 30)           
     scale = 0
     notification_limit = 0
     progress_bar = false
@@ -49,12 +49,12 @@
 [urgency_low]
     background = "#232323"
     foreground = "#a8a8a8"
-    timeout = 5
+    timeout = 3
 
 [urgency_normal]
     background = "#232323"
     foreground = "#a8a8a8"
-    timeout = 10
+    timeout = 8
     override_pause_level = 15
 
 [urgency_critical]

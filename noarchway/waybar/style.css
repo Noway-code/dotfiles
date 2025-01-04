@@ -152,6 +152,7 @@ window#waybar.empty #window {
 #pulseaudio,
 #battery,
 #custom-appmenu,
+#custom-pomodoro,
 #clock {
     margin-right: 20px;
     font-size: 20px;
@@ -182,6 +183,13 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-appmenu {
+    background-color: @backgrounddark;
+    color: @textcolor1;
+    border-radius: 15px;
+    margin: 10px 10px 10px 10px;
+}
+
+#custom-pomodoro {
     background-color: @backgrounddark;
     color: @textcolor1;
     border-radius: 15px;
