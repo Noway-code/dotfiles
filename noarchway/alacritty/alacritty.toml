@@ -1,6 +1,6 @@
 [general]
 import = [
-    "~/.config/alacritty/themes/themes/nordic.toml"
+    "~/.config/alacritty/themes/themes/citylights.toml"
 ]
 
 [font]

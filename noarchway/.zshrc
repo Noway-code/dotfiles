@@ -111,7 +111,7 @@ alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cat='bat'
 alias tyal='~/Scripts/pyType.sh'
-
+alias bd='./Downloads/BetterDiscord-Linux.AppImage'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -125,4 +125,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export MOZ_ENABLE_WAYLAND=1
+# Set pyenv root
+export PYENV_ROOT="$HOME/.pyenv"
+
+# Add pyenv to PATH
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Initialize pyenv for Zsh
+eval "$(pyenv init - zsh)"
+
+# Initialize pyenv-virtualenv
+eval "$(pyenv virtualenv-init -)"
 
