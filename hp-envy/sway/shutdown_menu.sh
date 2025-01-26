@@ -12,7 +12,7 @@ dir2="$HOME/.config/rofi/powermenu/type-1"
 theme2='style-2'
 
 # Power menu options with icons
-options=" Update System\n Lock\n Logout\n Reboot\n Shutdown"
+options="Update System\nLock\nLogout\nReboot\nShutdown"
 
 chosen=$(echo -e "$options" | rofi -dmenu \
     -theme ${dir}/${theme}.rasi \
@@ -60,7 +60,7 @@ case "$chosen" in
         fi
         ;;
     *Lock)
-        swaylock -c 000000 --image ~/Pictures/TTGL.jpeg --scaling fill --indicator-radius 100 --inside-color 00000088 --ring-color 50fa7b
+        swaylock -c 000000 --image /home/noway/Pictures/Wallpapers/nord.jpg --scaling fill --indicator-radius 100 --inside-color 00000088 --ring-color 50fa7b
         ;;
     *Update*)
         alacritty -e bash -c "sudo ~/.config/sway/update.sh"
