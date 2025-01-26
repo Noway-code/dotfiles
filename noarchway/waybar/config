@@ -16,7 +16,8 @@
     "modules-left": [
         "group/quicklinks",
         "hyprland/window",
-	"custom/appmenu"
+	"custom/appmenu",
+	"custom/pomodoro"
     ],
     "modules-center": [
         "hyprland/workspaces"
