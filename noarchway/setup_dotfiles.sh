@@ -23,7 +23,7 @@ if [ $# -lt 1 ]; then
 fi
 
 # Define base directories
-DOTFILES_DIR="$HOME/Git/dotfiles/noarchway"
+DOTFILES_DIR="$HOME/Git/dotfiles/archenvy"
 CONFIG_DIR="$HOME/.config"
 BACKUP_DIR="$HOME/.config_backup"
 
