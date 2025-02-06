@@ -62,8 +62,8 @@ decorations = "Full"
 opacity = 0.85
 
   [window.padding]
-  x = 20
-  y = 20
+  x = 5
+  y = 5 
 
   [window.dimensions]
   columns = 100

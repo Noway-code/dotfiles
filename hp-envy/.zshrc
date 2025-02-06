@@ -161,3 +161,4 @@ zle -N insert_killport_command
 # Bind the widget to Ctrl-K
 bindkey '^K' insert_killport_command
 
+export PATH="$PATH:/opt/nvim-linux64/bin"
