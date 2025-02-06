@@ -82,8 +82,7 @@
         "format": "",
         "tooltip": false
     },
-
-    // CPU
+       // CPU
     "cpu": {
         "format": "/ C {usage}% ",
         "on-click": "alacritty -e htop"
@@ -118,6 +117,7 @@
         "modules": [
             "custom/system",
             "disk",
+            "custom/gpu-usage",
             "cpu",
             "memory",
             "hyprland/language"
@@ -201,11 +201,19 @@
         },
         "on-click-right": "hyprlock"        
     },
-        "custom/pomodoro": {
-	"format": "{}",
-	"return-type": "json",
-	"exec": "waybar-module-pomodoro",
-	"on-click": "waybar-module-pomodoro toggle",
-	"on-click-right": "waybar-module-pomodoro reset",
-},
+    "custom/pomodoro": {
+        "format": "{}",
+        "return-type": "json",
+        "exec": "waybar-module-pomodoro",
+        "on-click": "waybar-module-pomodoro toggle",
+        "on-click-right": "waybar-module-pomodoro reset",
+    },
+   
+  "custom/gpu": {
+    "exec": "~/Scripts/gpu.sh",
+    "interval": 3,
+    "tooltip": true,
+    "format": " {}",
+    "tooltip-format": "{}"
+  }
 }

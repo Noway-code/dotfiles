@@ -115,7 +115,7 @@ alias bd='./Downloads/BetterDiscord-Linux.AppImage'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH=/opt/cuda/bin:$PATH:~/.local/bin
+export PATH=/opt/cuda/bin:$PATH:~/.local/bin:/home/noarchway/.cargo/bin
 export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
