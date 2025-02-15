@@ -29,6 +29,7 @@
         "cpu", 
         "memory", 
         "keyboard-state", 
+	"custom/gpu-usage",
         "battery", 
         "clock", 
         "tray",

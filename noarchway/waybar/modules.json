@@ -208,12 +208,10 @@
         "on-click": "waybar-module-pomodoro toggle",
         "on-click-right": "waybar-module-pomodoro reset",
     },
-   
-  "custom/gpu": {
-    "exec": "~/Scripts/gpu.sh",
-    "interval": 3,
-    "tooltip": true,
-    "format": " {}",
-    "tooltip-format": "{}"
-  }
+    "custom/gpu-usage": {
+        "return-type": "json",
+        "exec": "~/Scripts/gpu.sh",
+        "interval": 3,
+        "on-click": "alacritty -e nvtop"
+    }
 }

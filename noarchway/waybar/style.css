@@ -10,15 +10,16 @@
  * ----------------------------------------------------- 
 */
 
-@define-color backgroundlight #FFFFFF;
-@define-color backgrounddark #FFFFFF;
-@define-color workspacesbackground1 #FFFFFF;
-@define-color workspacesbackground2 #CCCCCC;
-@define-color bordercolor #FFFFFF;
-@define-color textcolor1 #000000;
-@define-color textcolor2 #000000;
-@define-color textcolor3 #FFFFFF;
-@define-color iconcolor #FFFFFF;
+@define-color backgroundlight #fbf1c7;
+@define-color textworkspace #282828;
+@define-color backgrounddark #282828;
+@define-color workspacesbackground1 #3c3836;
+@define-color workspacesbackground2 #e4ba68;
+@define-color bordercolor #ebdbb2;
+@define-color textcolor1 #3c3836;
+@define-color textcolor2 #3c3836;
+@define-color textcolor3 #d5c4a1;
+@define-color iconcolor #d5c4a1;
 
 /* -----------------------------------------------------
  * General 
@@ -31,9 +32,8 @@
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.2);
-    border-bottom: 0px solid #ffffff;
-    /* color: #FFFFFF; */
+    background-color: rgba(40,40,40,0.85);
+    border-bottom: 0px solid @bordercolor;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -63,7 +63,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-    color: @textcolor1;
+    color: @textworkspace;
     background: @workspacesbackground2;
     border-radius: 15px;
     min-width: 40px;
@@ -71,7 +71,7 @@ window#waybar {
 }
 
 #workspaces button:hover {
-    color: @textcolor1;
+    color: @textworkspace;
     background: @workspacesbackground2;
     border-radius: 15px;
 }
@@ -83,9 +83,9 @@ window#waybar {
 tooltip {
     border-radius: 10px;
     background-color: @backgroundlight;
-    opacity:0.8;
-    padding:20px;
-    margin:0px;
+    opacity: 0.9;
+    padding: 20px;
+    margin: 0px;
 }
 
 tooltip label {
@@ -93,7 +93,7 @@ tooltip label {
 }
 
 /* -----------------------------------------------------
- * Window
+ * Window 
  * ----------------------------------------------------- */
 
 #window {
@@ -101,23 +101,23 @@ tooltip label {
     margin: 10px 15px 10px 0px;
     padding: 2px 10px 0px 10px;
     border-radius: 12px;
-    color:@textcolor2;
-    font-size:16px;
-    font-weight:normal;
+    color: @textcolor2;
+    font-size: 16px;
+    font-weight: normal;
 }
 
 window#waybar.empty #window {
-    background-color:transparent;
+    background-color: transparent;
 }
 
 /* -----------------------------------------------------
- * Taskbar
+ * Taskbar 
  * ----------------------------------------------------- */
 
 #taskbar {
     background: @backgroundlight;
     margin: 6px 15px 6px 0px;
-    padding:0px;
+    padding: 0px;
     border-radius: 15px;
     font-weight: normal;
     font-style: normal;
@@ -125,13 +125,13 @@ window#waybar.empty #window {
 }
 
 #taskbar button {
-    margin:0;
+    margin: 0;
     border-radius: 15px;
     padding: 0px 5px 0px 5px;
 }
 
 /* -----------------------------------------------------
- * Modules
+ * Modules 
  * ----------------------------------------------------- */
 
 .modules-left > widget:first-child > #workspaces {
@@ -143,7 +143,7 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * Custom Quicklinks
+ * Custom Quicklinks 
  * ----------------------------------------------------- */
 
 #custom-browser, 
@@ -172,70 +172,70 @@ window#waybar.empty #window {
 #custom-quicklink8,
 #custom-quicklink9,
 #custom-quicklink10 {
-    padding:0px;
+    padding: 0px;
     margin-right: 7px;
-    font-size:20px;
+    font-size: 20px;
     color: @iconcolor;
 }
 
 /* -----------------------------------------------------
- * Custom Modules
+ * Custom Modules 
  * ----------------------------------------------------- */
 
 #custom-appmenu {
     background-color: @backgrounddark;
-    color: @textcolor1;
+    color: @backgroundlight;
     border-radius: 15px;
-    margin: 10px 10px 10px 10px;
+    margin: 10px;
 }
 
 #custom-pomodoro {
     background-color: @backgrounddark;
-    color: @textcolor1;
+    color: @backgroundlight;
     border-radius: 15px;
-    margin: 10px 10px 10px 10px;
+    margin: 10px;
 }
 
 /* -----------------------------------------------------
- * Custom Exit
+ * Custom Exit 
  * ----------------------------------------------------- */
 
 #custom-exit {
     margin: 2px 20px 0px 0px;
-    padding:0px;
-    font-size:20px;
+    padding: 0px;
+    font-size: 20px;
     color: @iconcolor;
 }
 
 /* -----------------------------------------------------
- * Hardware Group
+ * Hardware Group 
  * ----------------------------------------------------- */
 
- #disk,#memory,#cpu,#language,#custom-gpu {
-    margin:0px;
-    padding:0px;
-    font-size:16px;
-    color:@iconcolor;
+#disk, #memory, #cpu, #language, #custom-gpu-usage {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    color: @iconcolor;
 }
 
 #language {
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 /* -----------------------------------------------------
- * Clock
+ * Clock 
  * ----------------------------------------------------- */
 
 #clock {
     background-color: @backgrounddark;
     font-size: 16px;
-    color: @textcolor1;
+    color: @backgroundlight;
     border-radius: 15px;
     margin: 10px 7px 10px 0px;
 }
 
 /* -----------------------------------------------------
- * Pulseaudio
+ * Pulseaudio 
  * ----------------------------------------------------- */
 
 #pulseaudio {
@@ -248,11 +248,11 @@ window#waybar.empty #window {
 
 #pulseaudio.muted {
     background-color: @backgrounddark;
-    color: @textcolor1;
+    color: @backgroundlight;
 }
 
 /* -----------------------------------------------------
- * Network
+ * Network 
  * ----------------------------------------------------- */
 
 #network {
@@ -263,21 +263,17 @@ window#waybar.empty #window {
     margin: 10px 10px 10px 0px;
 }
 
-#network.ethernet {
-    background-color: @backgroundlight;
-    color: @textcolor2;
-}
-
+#network.ethernet,
 #network.wifi {
     background-color: @backgroundlight;
     color: @textcolor2;
 }
 
 /* -----------------------------------------------------
- * Bluetooth
+ * Bluetooth 
  * ----------------------------------------------------- */
 
- #bluetooth, #bluetooth.on, #bluetooth.connected {
+#bluetooth, #bluetooth.on, #bluetooth.connected {
     background-color: @backgroundlight;
     font-size: 16px;
     color: @textcolor2;
@@ -292,7 +288,7 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * Battery
+ * Battery 
  * ----------------------------------------------------- */
 
 #battery {
@@ -316,8 +312,8 @@ window#waybar.empty #window {
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: @textcolor3;
+    background-color: #fb4934;
+    color: @backgroundlight;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -326,11 +322,11 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
- * Tray
+ * Tray 
  * ----------------------------------------------------- */
 
 #tray {
-    margin:0px 10px 0px 0px;
+    margin: 0px 10px 0px 0px;
 }
 
 #tray > .passive {
@@ -339,26 +335,26 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: #fb4934;
 }
 
 /* -----------------------------------------------------
- * Other
+ * Other 
  * ----------------------------------------------------- */
 
 label:focus {
-    background-color: #000000;
+    background-color: @backgrounddark;
 }
 
 #backlight {
-    background-color: #90b1b1;
+    background-color: #83a598;
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: #458588;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: #fb4934;
 }
 

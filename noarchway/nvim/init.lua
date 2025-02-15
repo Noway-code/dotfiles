@@ -114,9 +114,6 @@ vim.opt.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -278,6 +275,11 @@ require('lazy').setup({
   -- Then, because we use the `config` key, the configuration only runs
   -- after the plugin has been loaded:
   --  config = function() ... end
+
+  'mfussenegger/nvim-dap',
+  'rcarriga/nvim-dap-ui',
+  'neovim/nvim-lspconfig',
+  { 'mhartington/formatter.nvim', event = 'BufWritePre' },
 
   { -- Useful plugin to show you pending keybinds.
     'folke/which-key.nvim',
@@ -447,6 +449,14 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+      vim.keymap.set('n', '<leader>sc', function()
+        builtin.find_files {
+          cwd = vim.fn.expand '~/.config',
+          hidden = true,
+          follow = true,
+          no_ignore = true,
+        }
+      end, { desc = '[S]earch [C]onfig (follow symlinks)' })
     end,
   },
 
@@ -472,6 +482,7 @@ require('lazy').setup({
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      'jay-babu/mason-nvim-dap.nvim',
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -695,6 +706,59 @@ require('lazy').setup({
           end,
         },
       }
+
+      require('mason-nvim-dap').setup {
+        ensure_installed = { 'python' },
+      }
+      local dap = require 'dap'
+      local dapui = require 'dapui'
+      dapui.setup()
+      dap.listeners.after.event_initialized['dapui_config'] = function()
+        dapui.open()
+      end
+      dap.listeners.before.event_terminated['dapui_config'] = function()
+        dapui.close()
+      end
+      dap.listeners.before.event_exited['dapui_config'] = function()
+        dapui.close()
+      end
+      dap.adapters.python = {
+        type = 'executable',
+        command = 'python',
+        args = { '-m', 'debugpy.adapter' },
+      }
+
+      dap.configurations.python = {
+        {
+          type = 'python',
+          request = 'launch',
+          name = 'Launch current file',
+          program = '${file}',
+          pythonPath = function()
+            return '/usr/bin/python'
+          end,
+        },
+      }
+      require('formatter').setup {
+        filetype = {
+          python = {
+            function()
+              return {
+                exe = 'black',
+                args = { '-' },
+                stdin = true,
+              }
+            end,
+          },
+        },
+      }
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = '*.py',
+        callback = function()
+          vim.cmd 'Format'
+        end,
+      })
     end,
   },
 
@@ -862,13 +926,13 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'catppuccin/nvim',
+    'rebelot/kanagawa.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'catppuccin'
+      vim.cmd.colorscheme 'kanagawa-dragon'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
