@@ -1,0 +1,70 @@
+" ~/.config/zathura/zathurarc
+
+" =========================
+" General Appearance
+" =========================
+
+" Set default background and foreground colors
+set default-bg "#1e1e1e"
+set default-fg "#c5c8c6"
+
+" =========================
+" Statusbar Customization
+" =========================
+
+" Set the statusbar background and foreground colors
+set statusbar-bg "#3c3c3c"
+set statusbar-fg "#ffffff"
+
+" =========================
+" Highlight/Selection Colors
+" =========================
+
+" Customize the highlight colors for selected text or links
+set highlight-bg "#373b41"
+set highlight-fg "#c5c8c6"
+
+" =========================
+" Page Display Settings
+" =========================
+
+" Set the zoom level to fit the width of the window
+set zoom "fit-width"
+
+" Hide scrollbars for a cleaner interface
+set show-scrollbars false
+
+" Enable smooth scrolling for a more refined navigation experience
+set smooth-scroll true
+
+" =========================
+" Key Bindings
+" =========================
+
+" Map primary (usually Ctrl on Wayland) with '+' and '-' for zooming in and out
+map <Primary>+ zoom-in
+map <Primary>- zoom-out
+
+" Navigation: Use 'j' and 'k' for moving to the next and previous pages respectively
+map j next-page
+map k previous-page
+
+" Toggle bookmarks view with 'b'
+map b toggle-bookmarks
+
+" Optional: Map 'r' to reload the configuration without restarting Zathura
+map r reload
+
+" =========================
+" Additional Customizations
+" =========================
+
+" Adjust window size automatically when changing the zoom level
+set adjust-window true
+
+" If you use a presentation mode, you can enable fullscreen by default (uncomment below)
+" set fullscreen true
+
+" Customize the rendering backend (optional, e.g., use pixman)
+" set render-backend "pixman"
+
