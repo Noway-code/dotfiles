@@ -117,6 +117,7 @@ alias bd='./Downloads/BetterDiscord-Linux.AppImage'
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH=/opt/cuda/bin:$PATH:~/.local/bin:/home/noarchway/.cargo/bin
+export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
 export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 

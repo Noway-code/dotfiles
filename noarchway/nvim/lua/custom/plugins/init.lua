@@ -34,4 +34,53 @@ return {
     'ThePrimeagen/vim-be-good',
     cmd = 'VimBeGood', -- Only load when the command is called
   },
+
+  {
+    'lervag/vimtex',
+    lazy = false, -- we don't want to lazy load VimTeX
+    -- tag = "v2.15", -- uncomment to pin to a specific release
+    init = function()
+      vim.g.vimtex_view_method = 'zathura'
+      vim.g.vimtex_compiler_method = 'latexmk'
+      vim.g.vimtex_quickfix_ignore_filters = {
+        'Underfull \\hbox',
+        'Overfull \\hbox',
+      }
+    end,
+  },
+
+  {
+    'goolord/alpha-nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      local alpha = require 'alpha'
+      local dashboard = require 'alpha.themes.dashboard'
+
+      dashboard.section.header.val = {
+        '                                                                       ',
+        '                                                                     ',
+        '       ████ ██████           █████      ██                     ',
+        '      ███████████             █████                             ',
+        '      █████████ ███████████████████ ███   ███████████   ',
+        '     █████████  ███    █████████████ █████ ██████████████   ',
+        '    █████████ ██████████ █████████ █████ █████ ████ █████   ',
+        '  ███████████ ███    ███ █████████ █████ █████ ████ █████  ',
+        ' ██████  █████████████████████ ████ █████ █████ ████ ██████ ',
+        '                                                                       ',
+      }
+      -- Customize the center buttons (commands)
+      dashboard.section.buttons.val = {
+        dashboard.button('e', '  New file', ':ene <BAR> startinsert <CR>'),
+        dashboard.button('f', '  Find file', ':Telescope find_files<CR>'),
+        dashboard.button('r', '  Recent files', ':Telescope oldfiles<CR>'),
+        dashboard.button('q', '  Quit', ':qa<CR>'),
+      }
+
+      -- Change the footer
+      dashboard.section.footer.val = 'Happy Coding!'
+
+      -- Setup alpha with the modified dashboard
+      alpha.setup(dashboard.opts)
+    end,
+  },
 }
