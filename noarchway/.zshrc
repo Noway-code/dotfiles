@@ -16,7 +16,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -138,4 +137,4 @@ eval "$(pyenv init - zsh)"
 
 # Initialize pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
-
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/amro.omp.json)"
