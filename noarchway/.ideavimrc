@@ -1,0 +1,12 @@
+" Set leader key
+let mapleader = " "
+
+" Example mapping to maximize window
+nmap <leader>wm :MaximizeWindow<CR>
+set which-key
+
+" disable the timeout option
+set notimeout
+
+" increase the timeoutlen (default: 1000), don't add space around the equal sign
+set timeoutlen=5000
