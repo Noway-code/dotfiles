@@ -121,11 +121,11 @@ return {
     event = 'BufReadPost',
     opts = {
       suggestion = {
-        enabled = true,
+        enabled = not vim.g.ai_cmp,
         auto_trigger = true,
-        hide_during_completion = false,
+        hide_during_completion = vim.g.ai_cmp,
         keymap = {
-          accept = '<C-l>',
+          accept = false, -- handled by nvim-cmp
           next = '<M-]>',
           prev = '<M-[>',
         },
@@ -136,5 +136,12 @@ return {
         help = true,
       },
     },
+  },
+  {
+    'zbirenbaum/copilot-cmp',
+    dependencies = { 'zbirenbaum/copilot.lua' },
+    config = function()
+      require('copilot_cmp').setup()
+    end,
   },
 }

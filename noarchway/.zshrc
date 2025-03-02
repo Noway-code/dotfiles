@@ -111,7 +111,7 @@ alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cat='bat'
 alias tyal='~/Scripts/pyType.sh'
-alias venv='~/Scripts/restore_virtual_enviroment.sh'
+alias sv='source ~/Scripts/restore_virtual_enviroment.sh'
 alias bd='./Downloads/BetterDiscord-Linux.AppImage'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
