@@ -1,7 +1,3 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
---
--- See the kickstart.nvim README for more information
 return {
   -- Better Markdown Syntax Highlighting
   {
@@ -24,21 +20,57 @@ return {
     end,
   },
 
+  -- Markdown Preview
   {
     'ellisonleao/glow.nvim',
     config = true,
     cmd = 'Glow',
   },
 
+  -- Folding & Headlines for Better Markdown
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' },
+  },
+  {
+    'lukas-reineke/headlines.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require('headlines').setup {
+        markdown = {
+          headline_highlights = { 'Headline1', 'Headline2', 'Headline3' },
+        },
+      }
+    end,
+  },
+
+  -- Note Linking / Wiki-Style Navigation
+  {
+    'renerocksai/telekasten.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim' },
+  },
+
+  -- Vim Game for Improving Speed
   {
     'ThePrimeagen/vim-be-good',
     cmd = 'VimBeGood', -- Only load when the command is called
   },
+  {
+    'rmagatti/auto-session',
+    config = function()
+      require('auto-session').setup {
+        log_level = 'error',
+        auto_session_enabled = true,
+        auto_session_root_dir = vim.fn.stdpath 'data' .. '/sessions/',
+        auto_session_suppress_dirs = { '~', '~/Projects' },
+      }
+    end,
+  },
 
+  -- LaTeX Support
   {
     'lervag/vimtex',
-    lazy = false, -- we don't want to lazy load VimTeX
-    -- tag = "v2.15", -- uncomment to pin to a specific release
+    lazy = false, -- Don't lazy-load VimTeX
     init = function()
       vim.g.vimtex_view_method = 'zathura'
       vim.g.vimtex_compiler_method = 'latexmk'
@@ -48,7 +80,6 @@ return {
       }
     end,
   },
-
   {
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -82,5 +113,28 @@ return {
       -- Setup alpha with the modified dashboard
       alpha.setup(dashboard.opts)
     end,
+  },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    build = ':Copilot auth',
+    event = 'BufReadPost',
+    opts = {
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        hide_during_completion = false,
+        keymap = {
+          accept = '<C-l>',
+          next = '<M-]>',
+          prev = '<M-[>',
+        },
+      },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        help = true,
+      },
+    },
   },
 }
