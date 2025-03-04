@@ -1,8 +1,7 @@
 symlinked to corresponding .config
 
 Arch Gruvbox (noarchway):
-![image](https://github.com/user-attachments/assets/49a4ea29-eebb-44d6-9244-37145df95c04)
-
+![image](https://github.com/user-attachments/assets/0f6ce333-3e11-4347-8f86-ff0cce1d1bad)
 
 
 
