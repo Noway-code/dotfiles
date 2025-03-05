@@ -180,4 +180,12 @@ configuration {
 */
 }
 
-@theme "oxide"
+//@theme "oxide"
+
+//@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+
+//@theme "/usr/share/rofi/themes/blue.rasi"
+
+//@theme "/usr/share/rofi/themes/material.rasi"
+
+@theme "/home/cam/.config/rofi/themes/oxide.rasi"

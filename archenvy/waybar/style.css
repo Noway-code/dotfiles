@@ -150,6 +150,7 @@ window#waybar.empty #window {
 #custom-filemanager,
 #network,
 #pulseaudio,
+#backlight,
 #battery,
 #custom-appmenu,
 #custom-pomodoro,
@@ -252,6 +253,18 @@ window#waybar.empty #window {
 }
 
 /* -----------------------------------------------------
+ * Brightness
+ * ----------------------------------------------------- */
+
+#backlight {
+    background-color: @backgroundlight;
+    font-size: 16px;
+    color: @textcolor2;
+    border-radius: 15px;
+    margin: 10px 10px 10px 0px;
+}
+
+/* -----------------------------------------------------
  * Network
  * ----------------------------------------------------- */
 
@@ -348,10 +361,6 @@ window#waybar.empty #window {
 
 label:focus {
     background-color: #000000;
-}
-
-#backlight {
-    background-color: #90b1b1;
 }
 
 #network {
