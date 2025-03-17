@@ -113,6 +113,7 @@ alias cat='bat'
 alias tyal='~/Scripts/pyType.sh'
 alias sv='source ~/Scripts/restore_virtual_enviroment.sh'
 alias bd='./Downloads/BetterDiscord-Linux.AppImage'
+alias dots='cd /home/noarchway/Git/dotfiles/noarchway/'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -139,3 +140,4 @@ eval "$(pyenv init - zsh)"
 # Initialize pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
 eval "$(oh-my-posh init zsh --config ~/.poshthemes/amro.omp.json)"
+
