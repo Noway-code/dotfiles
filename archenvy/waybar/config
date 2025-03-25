@@ -27,6 +27,7 @@
 	"backlight",
         "pulseaudio", 
         "network",
+	"power-profiles-daemon",
         "cpu", 
         "memory", 
         "keyboard-state", 

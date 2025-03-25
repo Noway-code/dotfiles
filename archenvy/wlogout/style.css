@@ -4,24 +4,28 @@
 }
 
 window {
-	background-color: rgba(12, 12, 12, 0.9);
+	background-color: rgba(46, 52, 64, 0.9);
+	padding: 20px;
 }
 
 button {
     border-radius: 0;
-    border-color: black;
-	text-decoration-color: #FFFFFF;
-    color: #FFFFFF;
-	background-color: #1E1E1E;
+    border: 1px solid #2E3440; /* using a Nord dark color for the border */
+	text-decoration-color: #D8DEE9; /* light text decoration */
+    color: #D8DEE9; /* Nord snow color for text */
+	background-color: #3B4252; /* slightly lighter Nord background for buttons */
 	border-style: solid;
 	border-width: 1px;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25%;
+	padding: 15px;
+	font-size: 16px;
 }
 
+/* Hover, focus, and active states change the background color to a cool Nord blue */
 button:focus, button:active, button:hover {
-	background-color: #3700B3;
+	background-color: #5E81AC; /* Nord accent blue */
 	outline-style: none;
 }
 
