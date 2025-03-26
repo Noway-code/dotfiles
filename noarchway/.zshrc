@@ -121,6 +121,8 @@ export PATH=/opt/cuda/bin:$PATH:~/.local/bin:/home/noarchway/.cargo/bin
 export PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
 export LD_LIBRARY_PATH=/opt/cuda/lib64:$LD_LIBRARY_PATH
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
+# Enable fuzzy auto-completion for files, directories, etc.
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 . "/home/noarchway/.deno/env"
 export NVM_DIR="$HOME/.nvm"
@@ -140,4 +142,5 @@ eval "$(pyenv init - zsh)"
 # Initialize pyenv-virtualenv
 eval "$(pyenv virtualenv-init -)"
 eval "$(oh-my-posh init zsh --config ~/.poshthemes/amro.omp.json)"
+eval "$(zoxide init zsh)"
 
