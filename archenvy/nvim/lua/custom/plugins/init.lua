@@ -3,6 +3,14 @@
 --
 -- See the kickstart.nvim README for more information
 return {
+  {
+    'kylechui/nvim-surround',
+    version = '^3.0.0', -- Use for stability; omit to use `main` branch for the latest features
+    event = 'VeryLazy',
+    config = function()
+      require('nvim-surround').setup {}
+    end,
+  },
   -- Better Markdown Syntax Highlighting
   {
     'plasticboy/vim-markdown',
@@ -48,7 +56,35 @@ return {
       }
     end,
   },
-
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    build = ':Copilot auth',
+    event = 'BufReadPost',
+    opts = {
+      suggestion = {
+        enabled = not vim.g.ai_cmp,
+        auto_trigger = true,
+        hide_during_completion = vim.g.ai_cmp,
+        keymap = {
+          accept = false, -- handled by nvim-cmp
+          next = '<M-]>',
+          prev = '<M-[>',
+        },
+      },
+      panel = { enabled = false },
+      filetypes = {
+        ['*'] = true,
+      },
+    },
+  },
+  {
+    'zbirenbaum/copilot-cmp',
+    dependencies = { 'zbirenbaum/copilot.lua' },
+    config = function()
+      require('copilot_cmp').setup()
+    end,
+  },
   {
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },

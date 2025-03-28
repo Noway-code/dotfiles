@@ -49,7 +49,7 @@
     "custom/exit": {
         "format": "",
         "tooltip-format": "Powermenu",
-        "on-click": "wlogout -b 5",
+        "on-click": "wlogout -b 3",
         "tooltip": false
     },
 
